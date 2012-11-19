@@ -9,8 +9,10 @@ import sublime_plugin
 class StupidIndent(sublime_plugin.EventListener):
 	def on_load(self, view):
 		n = os.path.basename(view.file_name());
+		settings = sublime.load_settings("Stupid Indent.sublime-settings")
+		c = settings.get('indentations', [])
 		s = view.settings()
-		c = s.get('stupid_indent', [])
+
 		for v in c:
 			for p in v.get('patterns', []):
 				if fnmatch.fnmatch(n, p):
