@@ -14,33 +14,22 @@ git clone https://github.com/tzvetkoff/sublime_stupid_indent sublime_stupid_inde
 ```
 
 ## Configuration
-Open your local preferences (`⌘,`), then drop a key like this:
+Stupid Indent adds settings to the Package Settings menu: `Preferences -> Package Settings -> Stupid Indent`
 
-``` json
+To customize, just copy `Settings - Default` to `Settings - User` so they aren't overriden during upgrade. Indentations in the User settings take precendence.
+
+The format of each indentation pattern is as follows:
+
+```json
 {
-
-    "stupid_indent": [
-        {
-            "patterns": ["Gemfile", "*.rb", "*.erb", "*.scss", "*.coffee"],
-            "tab_size": 2,
-            "translate_tabs_to_spaces": true
-        },
-        {
-            "patterns": ["*.html", "*.js", "*.css"],
-            "tab_size": 2,
-            "translate_tabs_to_spaces": true
-        },
-        {
-            "patterns": ["*.php"],
-            "tab_size": 4,
-            "translate_tabs_to_spaces": false
-        },
-        {
-            "patterns": ["*.md", "*.markdown"],
-            "tab_size": 4,
-            "translate_tabs_to_spaces": true
-        }
-    ]
-
+    "patterns": ["Gemfile", "*.rb", "*.erb", "*.scss", "*.coffee"],
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true
 }
 ```
+
+* `patterns` - list of the file patters that are matched against the file name
+* `tab_size` - tab size to use for the matched pattern
+* `translate_tabs_to_spaces` - translate tabs for the matched pattern
+
+_Note: Settings are modified for the specific file as it is opened._
